@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <string.h> // strcat
+#include <stdlib.h>
+#include <time.h>
 int main(int argc, char const *argv[])
 {
+    srand((unsigned int)time(NULL)); // 乱数の初期化
     int x = 5;
     int y = 7;
     int z = 9;
@@ -58,16 +61,81 @@ int main(int argc, char const *argv[])
             printf("YOU WIN!\n");
             break;
         }
+        // COMのターン
+        a = 0;
+        b = 0;
+        int c = 0;
 
-        if(x != 0 && y == 0 && z == 0){
-            x = 0;
-            printf("COM>xを%dに減らします。\n",x);
-        }else if (x == 0 && y != 0 && z == 0){
-            y = 0;
-            printf("COM>yを%dに減らします。\n",y);
-        }else if (x == 0 && y == 0 && z != 0){
-            z = 0;
-            printf("COM>zを%dに減らします。\n",z);
+        if(x){
+            a = 1;
+        }
+        if(y){
+            b = 1;
+        }
+        if(z){
+            c = 1;
+        }
+
+        int d = a + b*2 + c*4;
+        
+        switch (d)
+        {
+            case 1:
+                x = 0;
+                printf("COM>%sの数を%dに減らします\n","左",x);
+                break;
+            case 2:
+                y = 0;
+                printf("COM>%sの数を%dに減らします\n","中央",y);
+                break;
+            case 4:
+                z = 0;
+                printf("COM>%sの数を%dに減らします\n","右",z);
+                break;
+            case 3:
+                int r = rand() % 2;// 0 or 1
+                if(r == 0){
+                    x--;
+                    printf("COM>%sの数を%dに減らします\n","左",x);
+                }else{
+                    y--;
+                    printf("COM>%sの数を%dに減らします\n","中央",y);
+                }
+                break;
+            case 5:
+                r = rand() % 2;// 0 or 1
+                if(r == 0){
+                    x--;
+                    printf("COM>%sの数を%dに減らします\n","左",x);
+                }else{
+                    z--;
+                    printf("COM>%sの数を%dに減らします\n","右",z);
+                }
+                break;
+            case 6:
+                r = rand() % 2;// 0 or 1
+                if(r == 0){
+                    y--;
+                    printf("COM>%sの数を%dに減らします\n","中央",y);
+                }else{
+                    z--;
+                    printf("COM>%sの数を%dに減らします\n","右",z);
+                }
+                break;
+            case 7:
+                r = rand() % 3;// 0 or 1 or 2
+                if(r == 0){
+                    x--;
+                    printf("COM>%sの数を%dに減らします\n","左",x);
+                }else if(r == 1){
+                    y--;
+                    printf("COM>%sの数を%dに減らします\n","中央",y);
+                }else{
+                    z--;
+                    printf("COM>%sの数を%dに減らします\n","右",z);
+                }
+                break;
+            
         }
         printf("%d %d %d\n",x,y,z);
         if (x == y && y == z && z == 0){

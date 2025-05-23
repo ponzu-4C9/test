@@ -77,7 +77,7 @@ int main(int argc, char const *argv[])
         }
 
         int d = a + b*2 + c*4;
-        
+
         switch (d)
         {
             case 1:
@@ -93,8 +93,7 @@ int main(int argc, char const *argv[])
                 printf("COM>%sの数を%dに減らします\n","右",z);
                 break;
             case 3:
-                int r = rand() % 2;// 0 or 1
-                if(r == 0){
+                if(x >= y){
                     x--;
                     printf("COM>%sの数を%dに減らします\n","左",x);
                 }else{
@@ -103,8 +102,7 @@ int main(int argc, char const *argv[])
                 }
                 break;
             case 5:
-                r = rand() % 2;// 0 or 1
-                if(r == 0){
+                if(x >= z){
                     x--;
                     printf("COM>%sの数を%dに減らします\n","左",x);
                 }else{
@@ -113,8 +111,7 @@ int main(int argc, char const *argv[])
                 }
                 break;
             case 6:
-                r = rand() % 2;// 0 or 1
-                if(r == 0){
+                if(y >= z){
                     y--;
                     printf("COM>%sの数を%dに減らします\n","中央",y);
                 }else{
@@ -123,11 +120,10 @@ int main(int argc, char const *argv[])
                 }
                 break;
             case 7:
-                r = rand() % 3;// 0 or 1 or 2
-                if(r == 0){
+                if(x >= y && x >= z){
                     x--;
                     printf("COM>%sの数を%dに減らします\n","左",x);
-                }else if(r == 1){
+                }else if(y >= z){
                     y--;
                     printf("COM>%sの数を%dに減らします\n","中央",y);
                 }else{

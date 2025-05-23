@@ -55,23 +55,23 @@ int main(int argc, char const *argv[])
         }
         printf("%d %d %d\n",x,y,z);
         if (x == y && y == z && z == 0){
-            printf("あなたの負けです。\n");
+            printf("YOU WIN!\n");
             break;
         }
 
-        if(x != 0){
+        if(x != 0 && y == 0 && z == 0){
             x = 0;
             printf("COM>xを%dに減らします。\n",x);
-        }else if (y != 0){
+        }else if (x == 0 && y != 0 && z == 0){
             y = 0;
             printf("COM>yを%dに減らします。\n",y);
-        }else if (z != 0){
+        }else if (x == 0 && y == 0 && z != 0){
             z = 0;
             printf("COM>zを%dに減らします。\n",z);
         }
         printf("%d %d %d\n",x,y,z);
         if (x == y && y == z && z == 0){
-            printf("COM WIN\n");
+            printf("あなたの負けです。\n");
             break;
         }
     }

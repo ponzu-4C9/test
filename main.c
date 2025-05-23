@@ -10,28 +10,27 @@ int main(int argc, char const *argv[])
         printf("どの数を減らしますか？1:左 2:中央 3:右 int>>");
         int a;
         scanf("%d",&a);
+        if(!(0 < a && a < 4)){
+            continue;
+        }
         printf("いくつ減らしますか？ int>>");
         int b;
         scanf("%d",&b);
-        char* stringyou;
+        char stringyou[256];
+        char dialog[256];
         switch (a)
         {
         case 1:
-            stringyou = "左";
+            strcpy(stringyou, "左");
             break;
         case 2:
-            stringyou = "中央";
+            strcpy(stringyou, "中央");
             break;
         case 3:
-            stringyou = "右";
+            strcpy(stringyou, "右");
             break;
         }
-        switch (b)
-        {
-        case 1:
-            break;
-        }
-        printf("%s\n",stringyou);
+        printf("%sの数を%dに減らします\n",stringyou,b);
     }
 
     return 0;

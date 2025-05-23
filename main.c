@@ -30,7 +30,10 @@ int main(int argc, char const *argv[])
             strcpy(stringyou, "右");
             break;
         }
-        printf("%sの数を%dに減らします\n",stringyou,b);
+        printf("YOU>%sの数を%dに減らします\n",stringyou,b);
+        printf("%d %d %d\n",x,y,z);
+        
+        
     }
 
     return 0;
